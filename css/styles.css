@@ -1,0 +1,20 @@
+html, body {
+    background-color: #332137;
+    color: #FFF;
+}
+
+body > div {
+    display: none;
+}
+
+span {
+    display: inline-block;
+}
+
+span[data-field="Temperature"] {
+    display: block;
+    position: absolute;
+    font-size: 600%;
+    top: 1rem;
+    left: 1rem;
+}

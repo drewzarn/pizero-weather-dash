@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="m-1">
+    <div id="config">
+        <div class="form-group">
+            <label for="tempest_key">Tempest API key</label>
+            <input type="text" class="form-control" id="tempest_key" />
+        </div>
+        <div class="form-group">
+            <label for="tempest_device">Tempest Device ID</label>
+            <input type="text" class="form-control" id="tempest_device" />
+        </div>
+        <div class="form-group">
+            <label for="tempest_station">Tempest Station ID</label>
+            <input type="text" class="form-control" id="tempest_station" />
+        </div>
+        <input type="button" value="Save" id="save" class="btn btn-outline-success" />
+    </div>
+    <div id="current">
+        <span data-field="Temperature" data-ctof="true" data-unit="&deg;" data-round="true"></span>
+        <span data-field="Pressure" data-unit="mmHg"></span>
+        <span data-field="WindDirection" data-unit="&deg;"></span>
+        <span data-field="WindLull" data-unit="MPH"></span>
+        <span data-field="WindAvg" data-unit="MPH"></span>
+        <span data-field="WindGust" data-unit="MPH"></span>
+        <span data-field="WindSpeed" data-unit="MPH"></span>
+    </div>
+</body>
+
+</html>
