@@ -72,6 +72,12 @@ const Tempest = {
 function ActiveWindow(id) {
     $('body>div').hide();
     $('div#' + id).show();
+
+    if(!id) {
+        setTimeout(() => {
+            if($('body>div:visible').length == 0) $('div#content').show();
+        }, 200);
+    }
 }
 
 $(document).ready(function () {
@@ -107,6 +113,7 @@ $(document).ready(function () {
                     console.log(oData);
                     break;
             }
+            ActiveWindow();
         };
         ActiveWindow('current');
     }
