@@ -1,20 +1,29 @@
 var ws;
 const searchParams = new URLSearchParams(window.location.search);
-
 const Tempest = {
     _wsid: undefined,
     get WSID() {
         if(!this._wsid) this._wsid = Math.floor(Math.random() * new Date().getTime());
         return this._wsid;
     },
+    URLParam: function(p) {
+        if(searchParams.has('t')) {
+            let t = JSON.parse(atob(searchParams.get('t')));
+            return t[p];
+        }
+        return false;
+    },
     get Key() {
-        return searchParams.get('tempest_key') || localStorage.getItem('tempest_key');
+        if(this.URLParam('k')) return this.URLParam('k');
+        return localStorage.getItem('tempest_key');
     },
     get DeviceID() {
-        return searchParams.get('tempest_device') || localStorage.getItem('tempest_device');
+        if(this.URLParam('d')) return this.URLParam('d');
+        return localStorage.getItem('tempest_device');
     },
     get StationID() {
-        return searchParams.get('tempest_station') || localStorage.getItem('tempest_station');
+        if(this.URLParam('s')) return this.URLParam('s');
+        return localStorage.getItem('tempest_station');
     },
     get WSListenStart() {
         let o = {
