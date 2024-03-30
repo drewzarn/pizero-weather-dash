@@ -6,6 +6,9 @@ html, body {
 body > div {
     display: none;
 }
+body > div#current {
+    display: block;
+}
 
 span {
     display: inline-block;
