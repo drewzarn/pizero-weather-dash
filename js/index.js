@@ -1,4 +1,6 @@
 var ws;
+const searchParams = new URLSearchParams(window.location.search);
+
 const Tempest = {
     _wsid: undefined,
     get WSID() {
@@ -6,13 +8,13 @@ const Tempest = {
         return this._wsid;
     },
     get Key() {
-        return localStorage.getItem('tempest_key');
+        return searchParams.get('tempest_key') || localStorage.getItem('tempest_key');
     },
     get DeviceID() {
-        return localStorage.getItem('tempest_device');
+        return searchParams.get('tempest_device') || localStorage.getItem('tempest_device');
     },
     get StationID() {
-        return localStorage.getItem('tempest_station');
+        return searchParams.get('tempest_station') || localStorage.getItem('tempest_station');
     },
     get WSListenStart() {
         let o = {
