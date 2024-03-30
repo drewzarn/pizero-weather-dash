@@ -72,13 +72,11 @@ const Tempest = {
 function ActiveWindow(id) {
     $('body>div').hide();
     $('div#' + id).show();
-
-    if(!id) {
-        setTimeout(() => {
-            if($('body>div:visible').length == 0) $('div#content').show();
-        }, 200);
-    }
 }
+
+setInterval(() => {
+    if($('body>div:visible').length == 0) ActiveWindow('content');
+}, 1000);
 
 $(document).ready(function () {
     if (Tempest.Key?.length != 36 || !Tempest.StationID || !Tempest.DeviceID) {
@@ -113,7 +111,6 @@ $(document).ready(function () {
                     console.log(oData);
                     break;
             }
-            ActiveWindow();
         };
         ActiveWindow('current');
     }
