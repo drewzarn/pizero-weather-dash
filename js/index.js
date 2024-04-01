@@ -81,6 +81,11 @@ $(document).ready(function () {
         $('#tempest_device').val(Tempest.DeviceID);
         $('#tempest_station').val(Tempest.StationID);
     } else {
+        setInterval(() => {
+            updateForecast();
+        }, 60 * 30 * 1000);
+        updateForecast();
+
         ws = new WebSocket("wss://ws.weatherflow.com/swd/data?token=" + Tempest.Key);
 
         ws.onopen = (event) => {
@@ -118,10 +123,45 @@ $(document).ready(function () {
     });
 });
 
+updateForecast = function() {
+    $.get('https://swd.weatherflow.com/swd/rest/better_forecast?station_id=' + Tempest.StationID + '&token=' + Tempest.Key, function(data) {
+        console.log('Forecast', data);
+        SetField('ForecastLow', data.forecast.daily[0].air_temp_low);
+        SetField('ForecastHigh', data.forecast.daily[0].air_temp_high);
+    });
+}
+
+CtoF = function(c) {
+    return c * 9 / 5 + 32;
+}
+
 SetField = function(field, value) {
+    if(field == 'WindDirection') setCompass(value);
     let $el = $('span[data-field="' + field + '"]');
-    if($el.data('ctof')) value = value * 9 / 5 + 32;
+    if($el.data('ctof')) value = CtoF(value);
     if($el.data('round')) value = Math.round(value);
     let text = value + ($el.data('unit') ? $el.data('unit') : '');
     $el.text(text);
+}
+
+function setCompass(degrees) {
+    var x, y, r, ctx, radians;
+    ctx = window.wind.getContext("2d");
+    radians = 0.0174533 * (degrees - 90);
+    x = ctx.canvas.width / 2;
+    y = ctx.canvas.height / 2; 
+    r = x * 0.8;
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height );
+    ctx.strokeStyle = "white";
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.arc(x, y, x - 1, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.lineWidth = 2;
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + r * Math.cos(radians), y + r * Math.sin(radians));
+    ctx.stroke();
 }

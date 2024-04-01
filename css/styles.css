@@ -11,7 +11,7 @@ body > div#current {
 }
 
 span {
-    display: inline-block;
+    display: none;
 }
 
 span[data-field="Temperature"] {
@@ -20,4 +20,38 @@ span[data-field="Temperature"] {
     font-size: 600%;
     top: 1rem;
     left: 1rem;
+}
+
+span[data-field="ForecastLow"] {
+    display: block;
+    position: absolute;
+    font-size: 200%;
+    top: 8rem;
+    left: 1rem;
+}
+span[data-field="ForecastHigh"] {
+    display: block;
+    position: absolute;
+    font-size: 200%;
+    top: 8rem;
+    left: 6rem;
+    text-align: right;
+}
+
+span[data-field="WindSpeed"] {
+    display: block;
+    position: absolute;
+    font-size: 150%;
+    top: 7rem;
+    right: 1rem;
+    width: 6rem;
+    text-align: center;
+}
+
+canvas#wind {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 6rem;
+    height: 6rem;
 }

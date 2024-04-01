@@ -31,12 +31,17 @@
     </div>
     <div id="current">
         <span data-field="Temperature" data-ctof="true" data-unit="&deg;" data-round="true"></span>
+
+        <span data-field="ForecastLow" data-ctof="true" data-unit="&deg;" data-round="true"></span>
+        <span data-field="ForecastHigh" data-ctof="true" data-unit="&deg;" data-round="true"></span>
+
         <span data-field="Pressure" data-unit="mmHg"></span>
         <span data-field="WindDirection" data-unit="&deg;"></span>
         <span data-field="WindLull" data-unit="MPH"></span>
         <span data-field="WindAvg" data-unit="MPH"></span>
         <span data-field="WindGust" data-unit="MPH"></span>
         <span data-field="WindSpeed" data-unit="MPH"></span>
+        <canvas id="wind" width="100" height="100"></canvas>
     </div>
 </body>
 
