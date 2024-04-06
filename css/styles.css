@@ -1,6 +1,7 @@
 html, body {
     background-color: #332137;
     color: #FFF;
+    cursor: none;
 }
 
 body a#reload {
@@ -8,6 +9,12 @@ body a#reload {
     bottom: .25rem;
     right: .25rem;
     color: black;
+}
+
+body a#alert {
+    position: absolute;
+    bottom: .25rem;
+    right: .25rem;
 }
 
 body > div {
