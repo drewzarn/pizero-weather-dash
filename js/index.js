@@ -121,6 +121,8 @@ $(document).ready(function () {
         localStorage.setItem('tempest_station', $('#tempest_station').val());
         location.reload();
     });
+
+    $('body div span[data-unit="°"]').addClass('degree');
 });
 
 updateForecast = function() {
@@ -140,8 +142,8 @@ SetField = function(field, value) {
     let $el = $('span[data-field="' + field + '"]');
     if($el.data('ctof')) value = CtoF(value);
     if($el.data('round')) value = Math.round(value);
-    let text = value + ($el.data('unit') ? $el.data('unit') : '');
-    $el.text(text);
+    let text = value + ($el.data('unit') ? '<span class="unit">' + $el.data('unit') + '</span>' : '');
+    $el.html(text);
 }
 
 function setCompass(degrees) {

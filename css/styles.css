@@ -10,15 +10,27 @@ body > div#current {
     display: block;
 }
 
-span {
+body div span {
     display: none;
+    line-height: 1em;
+}
+
+body div span.unit {
+    display: inline;
+    font-size: 75%;
+    margin-left: .25rem;
+}
+
+body div span.degree span.unit {
+    font-size: 100%;
+    margin-left: 0;
 }
 
 span[data-field="Temperature"] {
     display: block;
     position: absolute;
     font-size: 600%;
-    top: 1rem;
+    top: 0;
     left: 1rem;
 }
 
@@ -26,32 +38,38 @@ span[data-field="ForecastLow"] {
     display: block;
     position: absolute;
     font-size: 200%;
-    top: 8rem;
+    top: 6rem;
     left: 1rem;
 }
 span[data-field="ForecastHigh"] {
     display: block;
     position: absolute;
     font-size: 200%;
-    top: 8rem;
+    top: 6rem;
     left: 6rem;
     text-align: right;
 }
 
-span[data-field="WindSpeed"] {
+div#windgroup {
     display: block;
-    position: absolute;
-    font-size: 150%;
-    top: 7rem;
-    right: 1rem;
-    width: 6rem;
-    text-align: center;
-}
-
-canvas#wind {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    width: 6rem;
+    height: calc(1vh - 1rem);
+    text-align: center;
+}
+div#windgroup > span {
+    display: block;
+    font-size: 150%;
+    padding-bottom: .25rem;
+}
+
+span[data-field="WindSpeed"] {
+    display: block;
+}
+
+canvas#wind {
     width: 6rem;
     height: 6rem;
 }
