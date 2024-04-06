@@ -3,6 +3,13 @@ html, body {
     color: #FFF;
 }
 
+body a#reload {
+    position: absolute;
+    bottom: .25rem;
+    right: .25rem;
+    color: black;
+}
+
 body > div {
     display: none;
 }
