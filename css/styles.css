@@ -6,7 +6,9 @@ html, body {
 
 body a#reload {
     position: absolute;
-    bottom: .25rem;
+    margin: 0;
+    padding: 0;
+    bottom: .75rem;
     right: .25rem;
     color: darkgrey;
 }
@@ -14,8 +16,8 @@ body a#reload {
 body a#alert {
     display: none;
     position: absolute;
-    bottom: .25rem;
-    left: .25rem;
+    bottom: .5rem;
+    left: .55rem;
 }
 
 body > div {
