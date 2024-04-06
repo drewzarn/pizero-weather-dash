@@ -147,6 +147,10 @@ SetField = function(field, value) {
 }
 
 function setCompass(degrees) {
+    let startDegrees = 45 + 180; //Icon starts at 45, then add 180 to make it point with the wind
+    $('#windarrow').css('transform', 'rotate(' + (degrees - startDegrees) + 'deg)');
+    return;
+    //Below is for canvas
     var x, y, r, ctx, radians;
     ctx = window.wind.getContext("2d");
     radians = 0.0174533 * (degrees - 90);
